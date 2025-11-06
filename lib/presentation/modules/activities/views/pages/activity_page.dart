@@ -25,15 +25,19 @@ class ActivityPage extends GetView<ActivityController> {
                 ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: ListView.builder(
-            itemCount: controller.activities.length,
-            itemBuilder: (context, index) {
-              return CardActivity(activityModel: controller.activities[index]);
-            },
-          ),
-        ),
+        body: controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: ListView.builder(
+                  itemCount: controller.activities.length,
+                  itemBuilder: (context, index) {
+                    return CardActivity(activityModel: controller.activities[index]);
+                  },
+                ),
+              ),
       ),
     );
   }

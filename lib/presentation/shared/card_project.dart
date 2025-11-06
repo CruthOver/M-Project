@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:management_project/application/configs/app_color.dart';
+import 'package:management_project/application/helpers/date_helper.dart';
 import 'package:management_project/application/utils/dotted_divider.dart';
-import 'package:management_project/data/models/project_model.dart';
+import 'package:management_project/data/models/project/project_model.dart';
 
 class CardProject extends StatelessWidget {
   final ProjectModel projectModel;
@@ -43,7 +44,7 @@ class CardProject extends StatelessWidget {
                         ),
                     children: [
                       TextSpan(
-                        text: projectModel.deadlineDate ?? "-",
+                        text: DateHelper.formatDateTimeTz(projectModel.deadlineDate),
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -54,7 +55,7 @@ class CardProject extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  projectModel.duration ?? "0 hari",
+                  projectModel.week == null ? "N/A" : "Minggu ${projectModel.week}",
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
@@ -105,7 +106,7 @@ class CardProject extends StatelessWidget {
                           width: 6,
                         ),
                         Text(
-                          projectModel.status ?? "-",
+                          projectModel.statusName(), // projectModel.status ?? "-",
                           style: Theme.of(context).textTheme.bodySmall!.copyWith(
                                 color: AppColor.colorBlack,
                               ),
@@ -113,7 +114,7 @@ class CardProject extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      "${projectModel.progress} %",
+                      "${projectModel.getRealization()} %", //TODO: Show Realization
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: AppColor.colorBlack,
                             fontWeight: FontWeight.w600,
@@ -126,7 +127,10 @@ class CardProject extends StatelessWidget {
                 ),
                 LinearProgressIndicator(
                   color: projectModel.colorStatus(),
-                  value: projectModel.progress! / 100,
+                  value: projectModel.getRealization() / 100,
+                  // projectModel.realization != null
+                  //                   ? (double.tryParse(projectModel.realization!) ?? 0) / 100
+                  //                   : 0 / 100,
                   borderRadius: BorderRadius.circular(10),
                 )
               ],

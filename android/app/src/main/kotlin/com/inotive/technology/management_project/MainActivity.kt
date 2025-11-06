@@ -1,4 +1,4 @@
-package com.example.management_project
+package com.inotive.technology.management_project
 
 import io.flutter.embedding.android.FlutterActivity
 

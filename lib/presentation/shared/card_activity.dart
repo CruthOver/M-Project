@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:management_project/application/configs/app_color.dart';
-import 'package:management_project/data/models/activity_model.dart';
+import 'package:management_project/data/models/activity/activity_model.dart';
 
 class CardActivity extends StatelessWidget {
   final ActivityModel activityModel;
@@ -46,7 +46,7 @@ class CardActivity extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        activityModel.title ?? "-",
+                        activityModel.projectName ?? "-",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: AppColor.colorBlack,
                               fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class CardActivity extends StatelessWidget {
                         height: 4,
                       ),
                       Text(
-                        activityModel.desc ?? "-",
+                        activityModel.activity ?? "-",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: AppColor.colorDescGrey,
                             ),
@@ -68,7 +68,7 @@ class CardActivity extends StatelessWidget {
                   width: 8,
                 ),
                 Text(
-                  activityModel.duration ?? "-",
+                  activityModel.duration(),
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: AppColor.colorSubtitleGrey,
                       ),

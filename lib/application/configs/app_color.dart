@@ -12,5 +12,7 @@ class AppColor {
   static const Color colorBtnYellow = Color.fromRGBO(254, 205, 40, 1);
   static const Color colorBtnSecondary = Color.fromRGBO(238, 187, 15, 1);
   static const Color colorBlack = Color.fromRGBO(0, 0, 0, 1);
+  static const Color colorSoftBlack = Color.fromRGBO(51, 51, 51, 1);
   static const Color colorBorder = Color.fromRGBO(217, 217, 217, 1);
+  static const Color colorRed = Color.fromRGBO(192, 36, 37, 1);
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "703596916005",
+    "project_id": "project-sniper-ce380",
+    "storage_bucket": "project-sniper-ce380.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703596916005:android:15145692eb8fd2f7877ecc",
+        "android_client_info": {
+          "package_name": "com.example.management_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABlF5PxDvm0WLwFRz268BhZRtURW9mY4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703596916005:android:7238d4cd14ec0d2c877ecc",
+        "android_client_info": {
+          "package_name": "com.inotive.technology.management_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABlF5PxDvm0WLwFRz268BhZRtURW9mY4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

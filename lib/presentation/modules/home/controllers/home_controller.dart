@@ -1,34 +1,39 @@
 import 'package:get/get.dart';
-import 'package:management_project/data/models/project_model.dart';
+import 'package:management_project/data/models/project/project_dashboard_model.dart';
+import 'package:management_project/domain/usecases/project_summary_use_case.dart';
+import 'package:management_project/presentation/modules/dashboard/controllers/dashboard_controller.dart';
+import 'package:management_project/presentation/modules/projects/controllers/project_controller.dart';
 
 class HomeController extends GetxController {
-  var projects = <ProjectModel>[].obs;
+  final ProjectSummaryUseCase projectSummaryUseCase;
+
+  HomeController({required this.projectSummaryUseCase});
+  var summary = ProjectDashboardModel().obs;
+  var isLoading = false.obs;
+  // var projects = <ProjectModel>[].obs;
 
   @override
   void onInit() {
-    projects.value = [
-      ProjectModel(
-          status: "Belum Mulai",
-          companyName: "PT Astra International Tbk",
-          deadlineDate: "05 Okt 2023",
-          projectName: "Proyek Perbaikan Jalan Marunda",
-          progress: 0,
-          duration: "2 Minggu"),
-      ProjectModel(
-          status: "Sedang Berjalan",
-          companyName: "PT Astra International Tbk",
-          deadlineDate: "05 Okt 2023",
-          projectName: "Proyek Perbaikan Jalan Marunda",
-          progress: 40,
-          duration: "3 Minggu"),
-      ProjectModel(
-          status: "Sedang Berjalan",
-          companyName: "PT Astra International Tbk",
-          deadlineDate: "05 Okt 2023",
-          projectName: "Proyek Perbaikan Jalan Marunda",
-          progress: 60,
-          duration: "1 Minggu"),
-    ];
+    getSummaryProject();
     super.onInit();
+  }
+
+  Future<void> getSummaryProject() async {
+    isLoading.toggle();
+    final response = await projectSummaryUseCase.execute();
+    if (response.success!) {
+      isLoading.toggle();
+      summary.value = response.data!;
+    } else {
+      isLoading.toggle();
+    }
+  }
+
+  Future<void> goToProjectTab(int index) async {
+    DashboardController dashboardController = Get.find<DashboardController>();
+    ProjectController projectController = Get.find<ProjectController>();
+    dashboardController.selectedMenuIndex.value = 1;
+    projectController.selectedBtnIndex.value = index;
+    await projectController.getProjectList();
   }
 }

@@ -52,7 +52,7 @@ class DashboardPage extends GetView<DashboardController> {
                   colorFilter: const ColorFilter.mode(AppColor.colorTitle, BlendMode.srcIn),
                 ),
                 icon: SvgPicture.asset("assets/icons/profile.svg"),
-                label: "Activity",
+                label: "Profile",
               ),
             ],
           ),

@@ -6,6 +6,9 @@ abstract class Routes {
   static const dashboard = _Paths.dashboard;
   static const notification = _Paths.notification;
   static const projectDetail = _Paths.projectDetail;
+  static const projectDetails = _Paths.projectDetails;
+  static const inputProgress = _Paths.inputProgress;
+  static const changePassword = _Paths.changePassword;
 }
 
 abstract class _Paths {
@@ -14,4 +17,7 @@ abstract class _Paths {
   static const dashboard = '/dashboard';
   static const notification = '/notification';
   static const projectDetail = '/project-detail';
+  static const projectDetails = '/project-details';
+  static const inputProgress = '/input-progress';
+  static const changePassword = '/change-password';
 }

@@ -1,7 +1,14 @@
-class ActivityEntity {
-  String? title;
-  String? desc;
-  String? duration;
+import 'package:json_annotation/json_annotation.dart';
 
-  ActivityEntity({this.title, this.desc, this.duration});
+class ActivityEntity {
+  @JsonKey(name: "nama_project")
+  String? projectName;
+  @JsonKey(name: "aktifitas")
+  String? activity;
+  @JsonKey(name: "created_at")
+  String? createdAt;
+  @JsonKey(name: "updated_at")
+  String? updatedAt;
+
+  ActivityEntity({this.projectName, this.activity, this.createdAt, this.updatedAt});
 }
